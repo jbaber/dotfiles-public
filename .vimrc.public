@@ -82,3 +82,6 @@ noremap <Space>s :set invhlsearch<Enter>
 
 " <Space>n toggles line numbers
 noremap <Space>n :set invnumber
+
+" Custom digraphs
+digraphs sm 9731
