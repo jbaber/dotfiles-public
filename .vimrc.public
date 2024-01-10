@@ -1,0 +1,84 @@
+""""""""""""""""""
+"""" Settings """"
+""""""""""""""""""
+
+" hh synonym for Esc
+inoremap hh <Esc>
+
+" Give me history!
+set history=999
+
+" Show current mode
+set showmode
+
+" Allow for display of matching braces with %
+set showmatch
+
+" don't autowrap lines
+set wrapmargin=0
+
+" >> and << shift indentation by two spaces
+set shiftwidth=2
+
+" Pressing <tab> translates to two spaces.  Now you must type Ctrl-v then tab
+" to get a real tab character.
+set expandtab
+
+" Pressing <tab> moves the cursor two spaces
+set tabstop=2
+
+" >>, <<, and <tab> move to a multiple of two spaces to keep things aligned
+set shiftround
+
+" Always show the tab line (tabs as in browser tabs)
+set showtabline=2
+
+" Underline current line
+set cursorline
+
+" Highlight trailing whitespace as if it's an error
+match ErrorMsg '\v(\s+)$'
+
+" Highlight any character in the 80-st column as if it's an error.
+2mat ErrorMsg '\%80v.'
+
+set scrolloff=0
+
+" Turn on syntax highlighting with 256 colors
+set t_Co=256
+syntax on
+
+" Make Ctrl-j and Ctrl-k move the page up and down
+map <C-k> <C-y>
+map <C-j> <C-e>
+
+
+"""""""""""""""""""
+"""" Shortcuts """"
+"""""""""""""""""""
+
+" Shortcuts for moving around windows without pressing shift.
+map ,w <C-w>
+map ,h <C-w>h
+map ,j <C-w>j
+map ,k <C-w>k
+map ,l <C-w>l
+
+" Shortcuts
+map ,ce :e
+map ,cte :tabedit
+map ,cw :w<Enter>
+map ,cq <c-w>q<Enter>
+map ,v <c-w>v
+map ,s <c-w>s
+map ,co q:
+map ,coo q:
+map ,/ q/
+map ,vt :vertical terminal<Enter>
+map ,te :terminal<Enter>
+
+" <Space>s toggles highlighting search
+noremap <Space>s :set invhlsearch<Enter>
+
+" <Space>n toggles line numbers
+noremap <Space>n :set invnumber
