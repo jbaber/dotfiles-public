@@ -1,0 +1,65 @@
+############
+# Settings #
+############
+
+# cd into directories by just typing them
+shopt -s autocd
+
+# vi editing mode for command line
+set -o vi
+
+TERM=xterm-color
+
+# Set the time zone.
+TZ=EST5EDT
+
+# Use vim as the default editor (it's nano in lots of places these days)
+export EDITOR=/usr/bin/vim
+
+###########
+# Aliases #
+###########
+
+alias l=ls
+alias p=vim
+alias m=mutt
+alias lg='git lg'
+
+##########
+# Tricks #
+##########
+
+# Filesystem bookmarks with tab completion
+# Altered from http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function jump {
+  cd -P "$MARKPATH/$1" 2>/dev/null
+  pwd
+}
+alias j=jump
+function mark {
+  mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+  rm -i "$MARKPATH/$1"
+}
+function marks {
+  ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' |sed '/./,$!d'
+}
+complete -W "$(find $MARKPATH -type l -printf "%f\n")" jump
+complete -W "$(find $MARKPATH -type l -printf "%f\n")" j
+
+# When I just press enter, do `ls`
+PROMPT_COMMAND='ls_on_enter'
+ls_on_enter() {
+  cmd_index=$(history 1 |awk '{print $1}')
+  # if [[ ${last_cmd_index} =~ ^[0-0+$ ]] && [ "${cmd_index}" -eq "${last_cmd_index}" ]; then
+  if [[ "${cmd_index}" -eq "${last_cmd_index}" ]]; then
+    ls
+  fi
+  last_cmd_index=${cmd_index}
+}
+
+# git version dotfiles with a special `config` command that
+# eliminates the need for symlinks
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
