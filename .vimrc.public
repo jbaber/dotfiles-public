@@ -81,8 +81,16 @@ map ,te :terminal<Enter>
 " <Space>s toggles highlighting search
 noremap <Space>s :set invhlsearch<Enter>
 
+" <Space>l toggles underlining current line
+map <Space>l :set invcursorline<CR>
+
 " <Space>n toggles line numbers
 noremap <Space>n :set invnumber<Enter>
+
+" <Space>c toggles highlighting column 79
+nnoremap <silent> <Space>c :execute "set colorcolumn="
+                  \ . (&colorcolumn == "" ? "79" : "")<CR>
+
 
 " Custom digraphs
 digraphs sm 9731
