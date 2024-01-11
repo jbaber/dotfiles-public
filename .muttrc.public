@@ -1,0 +1,40 @@
+############
+# Settings #
+############
+
+#Turn on recording sent messages to outgoing
+set record=$MAILDIR/sent-mail
+
+#Set ~/mail/postponed as the postponed messages folder
+set postponed=$MAILDIR/postponed
+
+set editor=/usr/bin/vim
+
+#Don't ask me if I should append to the end of a file, just do it!
+unset confirmappend
+
+#Just move the messages and purge without asking
+set delete=yes
+
+# Don't immediately jump to the next message
+set pager_stop=yes
+
+# Make the default sort by arrival instead of "threads"
+set sort=date-received
+
+# Which headers to show and hide
+ignore *
+unignore To From Sender Subject Cc
+
+# Show the following kinds of attachments inline
+auto_view text/html
+
+# Don't wrap lines intelligently, just at the edge.
+set smart_wrap=no
+
+# Would put '+' at the beginning of a line that's been wrapped
+set markers=no
+
+# Per http://www.mail-archive.com/mutt-users@mutt.org/msg32000.html
+# Try to make dates look like EST
+set pager_format="%4C %Z %[!%b %e at %I:%M %p]  %.20n  %s"
