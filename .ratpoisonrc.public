@@ -1,0 +1,75 @@
+############
+# Settings #
+############
+
+# Bigger ratpoison font
+set font Mono-20
+
+# Make new windows center aligned
+addhook switchwin gravity c
+
+# Don't tell me "Welcome to ratpoison"
+startup_message off
+
+# Align the bar to the bottom center
+set bargravity s
+
+# Change which characters are used for selecting frames
+set framesels "snthaoeuidlrcgyfqjkxbmwvz"
+
+# Send the rat to the SE corner of the screen at start
+banish
+
+# Turn numlock on at start
+exec numlockx on &
+
+# For time and battery painted directly on root window
+exec conky &
+
+###########
+# Aliases #
+###########
+
+# Tricks from http://thinkmoult.com/2009/05/13/ratpoison-an-efficient-and-minimalist-wm/
+# vim-like bindings
+unbind k
+bind j focusdown
+bind h focusleft
+bind k focusup
+bind l focusright
+bind J exchangedown
+bind H exchangeleft
+bind K exchangeup
+bind L exchangeright
+bind C-k delete
+bind d delete
+
+# Shock other users slightly less by having alt-tab cycle through windows
+definekey top M-Tab next
+
+definekey top s-f exec firefox
+definekey top s-t exec xterm
+definekey top s-n next
+definekey top s-h prev
+
+##########
+# Tricks #
+##########
+
+# rpbar stuff
+# tell ratpoison to ignore rpbar
+unmanage rpbar
+# # leave space for bars
+# set padding 0 14 0 14
+# start rpbar 
+exec rpbar
+# hooks
+addhook switchwin exec rpbarsend
+addhook switchframe exec rpbarsend
+addhook switchgroup exec rpbarsend
+addhook deletewindow exec rpbarsend
+# RP versions >= 1.4.6 (from the git repo) have these hooks.
+# Recommended!
+addhook titlechanged exec rpbarsend
+addhook newwindow exec rpbarsend
+
