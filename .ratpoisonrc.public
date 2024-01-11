@@ -24,7 +24,7 @@ banish
 exec numlockx on &
 
 # For time and battery painted directly on root window
-exec conky --config=$HOME/dotfiles-public/conky.conf &
+exec conky --config=$HOME/dotfiles-public/conky.conf.public &
 
 ###########
 # Aliases #
