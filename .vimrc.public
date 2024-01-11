@@ -3,6 +3,7 @@
 """"""""""""""""""
 
 " hh synonym for Esc
+" Better for muscle memory than capslock
 inoremap hh <Esc>
 
 " Give me history!
