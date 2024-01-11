@@ -82,7 +82,7 @@ map ,te :terminal<Enter>
 noremap <Space>s :set invhlsearch<Enter>
 
 " <Space>n toggles line numbers
-noremap <Space>n :set invnumber
+noremap <Space>n :set invnumber<Enter>
 
 " Custom digraphs
 digraphs sm 9731
