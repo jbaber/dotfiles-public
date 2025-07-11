@@ -8,5 +8,21 @@ On a new machine, I must
     config config --local status.showUntrackedFiles no
     config checkout
 
+How to include in local dotfiles
+--------------------------------
+
+`.bashrc`:
+
+    source $HOME/.bashrc.public
+
+`.vimrc`:
+
+    source $HOME/.vimrc.public
+
+
+`.gitconfig`:
+
+    [include]
+      path = ~/.gitconfig.public
 
 [at this blogpost]: https://www.atlassian.com/git/tutorials/dotfiles
