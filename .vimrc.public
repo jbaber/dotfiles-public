@@ -94,6 +94,15 @@ noremap <Space>n :set invnumber<Enter>
 nnoremap <silent> <Space>c :execute "set colorcolumn="
                   \ . (&colorcolumn == "" ? "79" : "")<CR>
 
+" <space>m toggles for vim-mutton muttonchops
+nnoremap <Space>m :MuttonToggle<CR>
+nnoremap <Space>mm :MuttonToggle<CR>
+nnoremap <Space>ml :MuttonToggle('left')<CR>
+nnoremap <Space>mr :MuttonToggle('right')<CR>
+
+" <Space>q to quit
+nnoremap <Space>q :quit<CR>
+
 
 " Custom digraphs
 digraphs sm 9731
