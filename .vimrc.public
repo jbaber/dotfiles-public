@@ -28,6 +28,9 @@ set expandtab
 " Pressing <tab> moves the cursor two spaces
 set tabstop=2
 
+" Rust should use 4 spaces
+autocmd FileType rust setlocal tabstop=4 shiftwidth=4 expandtab
+
 " >>, <<, and <tab> move to a multiple of two spaces to keep things aligned
 set shiftround
 
