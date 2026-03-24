@@ -13,6 +13,9 @@ TERM=xterm-color
 # Set the time zone.
 TZ=EST5EDT
 
+# Case insensitive tab completion (instead of putting that line in $HOME/.inputrc)
+bind 'set completion-ignore-case on'
+
 # Use vim as the default editor (it's nano in lots of places these days)
 export EDITOR=/usr/bin/vim
 
