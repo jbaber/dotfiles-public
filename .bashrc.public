@@ -19,6 +19,48 @@ bind 'set completion-ignore-case on'
 # Use vim as the default editor (it's nano in lots of places these days)
 export EDITOR=/usr/bin/vim
 
+##########
+# Prompt #
+##########
+
+PROMPT_DIRTRIM=2
+
+function parsed-git-branch {
+  plain="$(git symbolic-ref --short HEAD 2>/dev/null)"
+  printf "\e[1;"
+  # Color for dirtiness
+  if (git diff-index --quiet HEAD 2>/dev/null); then
+    printf "32"
+  else
+    printf "91"
+  fi
+  echo -en "m${plain}\033[0m"
+}
+
+function git-remotes {
+  if git rev-parse --is-inside-work-tree 1>/dev/null 2>/dev/null; then
+    UPSTREAM="$(git config branch.$(git name-rev --name-only HEAD).remote)"
+    REMOTES="$(git remote |tr '\n' ' ')"
+    NUM_REMOTES="$(echo $REMOTES |wc -w)"
+    COUNTER=0
+    for REMOTE in $REMOTES; do
+      COUNTER=$(( $COUNTER + 1 ))
+      if [[ $REMOTE = "$UPSTREAM" ]]; then
+        echo -en '\033[4m'$REMOTE'\033[0m'
+      else
+        echo -n $REMOTE
+      fi
+      if [[ $COUNTER -ne $NUM_REMOTES ]]; then
+        echo -n ', '
+      fi
+    done
+  fi
+}
+
+# PS1='\w ('$(parsed-git-branch.bash)')\[\033[01;32m\]/\[\033[0m\] '
+PS1='\w (\[$(parsed-git-branch)\]) [\[$(git-remotes)\]] \[\033[01;91m/\033[0m\] '
+
+
 ###########
 # Aliases #
 ###########
