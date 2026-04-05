@@ -1,3 +1,7 @@
+# To include in $HOME/.gitconfig, add
+# [include]
+# 	path = $HOME/.gitconfig.public
+
 [color]
 	ui = true
 
