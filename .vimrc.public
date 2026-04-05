@@ -1,3 +1,8 @@
+" To include add
+" source $HOME/.vimrc.public
+" to $HOME/.vimrc
+
+
 """"""""""""""""""
 """" Settings """"
 """"""""""""""""""
