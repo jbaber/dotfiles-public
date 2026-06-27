@@ -1,3 +1,7 @@
+# To include, add
+# source $HOME/.bashrc.public
+# to your $HOME/.bashrc
+
 ############
 # Settings #
 ############
