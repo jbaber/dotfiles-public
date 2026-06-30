@@ -1,3 +1,7 @@
+# To use add
+# source $HOME/.tmux.conf.public
+# to $HOME/.tmux.conf.public
+
 ############
 # Settings #
 ############
