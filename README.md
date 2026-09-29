@@ -8,21 +8,4 @@ On a new machine, I must
     pconfig config --local status.showUntrackedFiles no
     pconfig checkout
 
-How to include in local dotfiles
---------------------------------
-
-`.bashrc`:
-
-    source $HOME/.bashrc.public
-
-`.vimrc`:
-
-    source $HOME/.vimrc.public
-
-
-`.gitconfig`:
-
-    [include]
-      path = ~/.gitconfig.public
-
-[at this blogpost]: https://www.atlassian.com/git/tutorials/dotfiles
+I put comments at the top of most dotfiles explaining how to include them in local ones.
