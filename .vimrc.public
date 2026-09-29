@@ -57,9 +57,9 @@ set scrolloff=0
 set t_Co=256
 syntax on
 
-" Make Ctrl-j and Ctrl-k move the page up and down
-map <C-k> <C-y>
-map <C-j> <C-e>
+" Make arrow keys scroll
+nnoremap <Up> <C-e>
+nnoremap <Down> <C-y>
 
 
 """""""""""""""""""
